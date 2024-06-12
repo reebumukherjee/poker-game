@@ -8,7 +8,7 @@ class Hand(cardList: List[Card]) {
   private val cards: List[Card] = cardList.sorted.reverse
 
   private val rankGroups: List[List[Card]] = cards.groupBy(_.rank).values.toList.sortWith {
-    (l1, l2) => l1.length > l2.length || (l1.length == l2.length && cardOrdering.gt(l1.head,l2.head))
+    (l1, l2) => l1.length > l2.length || (l1.length == l2.length && cardOrdering.gt(l1.head, l2.head))
   }
 
   private val highCard: Int = cards.head.rank

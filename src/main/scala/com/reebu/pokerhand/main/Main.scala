@@ -6,7 +6,7 @@ import com.reebu.pokerhand.parser.TextParser.listHand
 object Main {
   def main(args: Array[String]): Unit = {
 
-    val filePath = "/com/reebu/pokerhand/main/poker_hands.txt"
+    val filePath = "/com/reebu/pokerhand/parser/poker_hands.txt"
     val hand = listHand(filePath)
 
     val handPlayer1 = hand._1.map(hand => new Hand(hand))

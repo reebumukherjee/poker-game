@@ -13,7 +13,7 @@ object Main {
     val handPlayer2 = hand._2.map(hand => new Hand(hand))
 
     //376
-    val answer = Range.inclusive(1,handPlayer1.length-1).map(i => handPlayer1(i).compareHands(handPlayer2(i))).map(_._2).count(_ == 1)
+    val answer = Range.inclusive(1,handPlayer1.length-1).map(i => handPlayer1(i).compare(handPlayer2(i))).count(_==true)
     println(answer)
   }
 }

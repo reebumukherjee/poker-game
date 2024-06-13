@@ -41,13 +41,9 @@ class Hand(cardList: List[Card]) {
     case (true, rank, value) => (rank, value)
   }.getOrElse((highCard, 1))
 
-  def compareHands(that: Hand): (Hand, Int) =
-    if (score._2 > that.score._2 || (score._2 == that.score._2 && score._1 > that.score._1))
-      (this, 1)
-    else if (score._2 == that.score._2 && score._1 == that.score._1)
-      (null, 0)
-    else
-      (that, 2)
+  def compare(that: Hand): Boolean = compareOrdering.gt(this,that)
+
+  implicit val compareOrdering :Ordering[Hand] = Ordering.by(hand =>(hand.score._2,hand.score._1))
 
   override def toString: String = s"$cards $score"
 }
